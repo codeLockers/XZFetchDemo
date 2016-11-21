@@ -1,0 +1,3 @@
+rootProject.name = 'XZFetchDemo'
+
+include ':app'
