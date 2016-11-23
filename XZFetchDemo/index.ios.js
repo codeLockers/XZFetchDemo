@@ -25,28 +25,46 @@ export default class XZFetchDemo extends Component {
     };
   }
 
+  /**
+   * GET 请求
+   */
   _sendGetRequest(){
 
     let url = 'http://op.juhe.cn/onebox/weather/query'
 
     let request = XZFetchHelper.get(url,{cityname:'苏州',key:'ed9b4f04b02a265a3684e256c6ff6f22'},(isSuccess,response) => {
       
-      console.log(response)
-      this.setState({
-        result:response.reason
-      });
+        if (isSuccess) {
+          //请求成功
+            console.log(response)
+            this.setState({
+            result:response.reason
+          });
+        }
+        else{
+          //请求失败
+        }
       
     })
   }
 
+  /**
+   * POST 请求
+   */
   _sendPostRequest(){
     
     let url = 'http://op.juhe.cn/onebox/weather/query'
     let request = XZFetchHelper.post(url,{cityname:'苏州',key:'ed9b4f04b02a265a3684e256c6ff6f22'}, (isSuccess,response) => {
-      this.setState({
-        result:response.reason
-      });
-      console.log(response)
+        if (isSuccess) {
+          //请求成功
+            console.log(response)
+            this.setState({
+            result:response.reason
+          });
+        }
+        else{
+          //请求失败
+        }
     })
   }
 
